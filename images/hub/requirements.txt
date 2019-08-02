@@ -2,7 +2,7 @@
 jupyterhub-dummyauthenticator==0.3.1
 jupyterhub-firstuseauthenticator==0.12
 jupyterhub-tmpauthenticator==0.6
-jupyterhub-ltiauthenticator==0.3
+git+https://github.com/sanjaydatasciencedojo/ltiauthenticator.git
 jupyterhub-ldapauthenticator==1.2.2
 jupyterhub-kubespawner==0.10.1
 kubernetes==8.0.*
