@@ -45,7 +45,7 @@ RUN PYCURL_SSL_LIBRARY=openssl pip3 install --no-cache-dir \
             echo jupyterhub==${JUPYTERHUB_VERSION}; \
           fi')
 
-ADD images/hub/jupyterhub_config.py /srv/jupyterhub_config.py
+ADD images/hub/jupyterhub_config1.py /srv/jupyterhub_config1.py
 
 ADD images/hub/z2jh.py /usr/local/lib/python3.6/dist-packages/z2jh.py
 ADD images/hub/cull_idle_servers.py /usr/local/bin/cull_idle_servers.py
