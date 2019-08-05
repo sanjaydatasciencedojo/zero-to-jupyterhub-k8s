@@ -5,9 +5,12 @@ import sys
 from tornado.httpclient import AsyncHTTPClient
 from kubernetes import client
 from jupyterhub.utils import url_path_join
-
+from tornado import web
 from z2jh import get_config, set_config_if_not_none
 
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write(self.request.url)
 # Configure JupyterHub to use the curl backend for making HTTP requests,
 # rather than the pure-python implementations. The default one starts
 # being too slow to make a large number of requests to the proxy API
@@ -311,6 +314,9 @@ elif auth_type == 'tmp':
 elif auth_type == 'lti':
     c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
     set_config_if_not_none(c.LTIAuthenticator, 'consumers', 'auth.lti.consumers')
+if MainHandler=="/hub/lti/launch":
+    c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
+    set_config_if_not_none(c.LTIAuthenticator, 'consumers', 'auth1.lti.consumers')
 elif auth_type == 'ldap':
     c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
     c.LDAPAuthenticator.server_address = get_config('auth.ldap.server.address')
