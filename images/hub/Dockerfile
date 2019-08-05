@@ -36,7 +36,7 @@ RUN adduser --disabled-password \
     --force-badname \
     ${NB_USER}
 
-ADD images/hub/requirements.txt /tmp/requirements.txt
+ADD requirements.txt /tmp/requirements.txt
 RUN PYCURL_SSL_LIBRARY=openssl pip3 install --no-cache-dir \
          -r /tmp/requirements.txt \
          $(bash -c 'if [[ $JUPYTERHUB_VERSION == "git"* ]]; then \
@@ -46,10 +46,10 @@ RUN PYCURL_SSL_LIBRARY=openssl pip3 install --no-cache-dir \
           fi')
 
 
-ADD images/hub/jupyterhub_config.py /srv/jupyterhub_config.py
+ADD jupyterhub_config.py /srv/jupyterhub_config.py
 
-ADD images/hub/z2jh.py /usr/local/lib/python3.6/dist-packages/z2jh.py
-ADD images/hub/cull_idle_servers.py /usr/local/bin/cull_idle_servers.py
+ADD z2jh.py /usr/local/lib/python3.6/dist-packages/z2jh.py
+ADD cull_idle_servers.py /usr/local/bin/cull_idle_servers.py
 
 WORKDIR /srv/jupyterhub
 
