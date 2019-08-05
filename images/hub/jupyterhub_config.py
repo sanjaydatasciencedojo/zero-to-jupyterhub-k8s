@@ -330,7 +330,7 @@ elif auth_type == 'ldap':
     set_config_if_not_none(c.LDAPAuthenticator, 'valid_username_regex', 'auth.ldap.dn.user.validRegex')
     set_config_if_not_none(c.LDAPAuthenticator, 'user_search_base', 'auth.ldap.dn.user.searchBase')
     set_config_if_not_none(c.LDAPAuthenticator, 'user_attribute', 'auth.ldap.dn.user.attribute')
-elif auth_type == 'custom':
+elif auth_type == 'custom1':
     # full_class_name looks like "myauthenticator.MyAuthenticator".
     # To create a docker image with this class availabe, you can just have the
     # following Dockerifle:
