@@ -314,7 +314,7 @@ elif auth_type == 'tmp':
 elif auth_type == 'lti':
     c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
     set_config_if_not_none(c.LTIAuthenticator, 'consumers', 'auth.lti.consumers')
-if MainHandler=="/hub/lti/launch":
+if True:
     c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
     set_config_if_not_none(c.LTIAuthenticator, 'consumers', 'auth1.lti.consumers')
 elif auth_type == 'ldap':
