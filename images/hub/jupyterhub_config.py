@@ -314,9 +314,6 @@ elif auth_type == 'tmp':
 elif auth_type == 'lti':
     c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
     set_config_if_not_none(c.LTIAuthenticator, 'consumers', 'auth.lti.consumers')
-if True:
-    c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
-    set_config_if_not_none(c.LTIAuthenticator, 'consumers', 'auth1.lti.consumers')
 elif auth_type == 'ldap':
     c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
     c.LDAPAuthenticator.server_address = get_config('auth.ldap.server.address')
@@ -346,6 +343,9 @@ elif auth_type == 'custom':
     auth_config.update(get_config('auth.custom.config') or {})
 else:
     raise ValueError("Unhandled auth type: %r" % auth_type)
+if True:
+    c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
+    set_config_if_not_none(c.LTIAuthenticator, 'consumers', 'auth1.lti.consumers')
 
 set_config_if_not_none(c.OAuthenticator, 'scope', 'auth.scopes')
 
